@@ -1,0 +1,4 @@
+rootProject.name = 'rfid-module-sdk'
+include 'library'
+include 'sample'
+

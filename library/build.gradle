@@ -1,0 +1,14 @@
+apply plugin: 'java'
+
+group rootProject.group
+version rootProject.version
+
+dependencies {
+    // JNA
+    compile 'net.java.dev.jna:jna:5.2.0'
+    // 单元测试
+    testCompile fileTree(include: ['*.jar'], dir: 'testlibs')
+    testCompile 'junit:junit:4.12'
+}
+
+apply from: '../publish.gradle'

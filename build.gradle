@@ -1,0 +1,34 @@
+buildscript {
+    ext.kotlin_version = '1.3.21'
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.tuuzed.gradle.plugin:gitvc:0.1.2'
+        classpath 'com.novoda:bintray-release:0.9'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'gitvc-gradle-plugin'
+
+
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        mavenCentral()
+    }
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+
+group 'com.chimpim.rfidmodulesdk'
+version GitVC.VERSION_NAME
