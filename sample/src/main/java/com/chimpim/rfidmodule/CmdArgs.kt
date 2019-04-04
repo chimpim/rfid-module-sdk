@@ -24,23 +24,13 @@ class CmdArgs {
 
 
     @Option(
-            name = "-jni",
-            aliases = ["--jni"],
-            metaVar = "<Boolean>",
-            usage = "--jni",
+            name = "-n",
+            aliases = ["--native"],
+            metaVar = "<String>",
+            usage = "--native jni",
             help = true
     )
-    var jni: Boolean = true
-
-
-    @Option(
-            name = "-jna",
-            aliases = ["--jna"],
-            metaVar = "<Boolean>",
-            usage = "--jna",
-            help = true
-    )
-    var jna: Boolean = false
+    var native: String = "jni"
 
 
     @Option(

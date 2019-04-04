@@ -30,7 +30,15 @@ fun main(vararg args: String) {
     }
     println(cmdArgs)
 
-    val reader = if (cmdArgs.jni) RfidModule.newJniReader() else RfidModule.newJnaReader()
+    val reader = when (cmdArgs.native) {
+        "jni" -> RfidModule.newJniReader()
+        "jna" -> RfidModule.newJnaReader()
+        else -> {
+            System.err.println("Usage: ")
+            parser.printUsage(System.err)
+            throw RuntimeException("--native error")
+        }
+    }
 
     var err = reader.InitReader_Notype(cmdArgs.address, cmdArgs.rtype)
 
